@@ -1,0 +1,44 @@
+services:
+  db:
+    build:
+      context: ./dbserver
+    container_name: 17017615_cyberdelia_db_c
+    hostname: thegibson
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "H4ckTh3Pl4n3t"
+      POSTGRES_DB: "gibson"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./dbserver/sqlconfig:/docker-entrypoint-initdb.d
+    networks:
+      cyberdelia:
+        ipv4_address: 203.0.113.201
+
+  web:
+    build:
+      context: ./webserver
+    container_name: 17017615_cyberdelia_web_c
+    hostname: cyberdelia
+    restart: unless-stopped
+    depends_on:
+      - db
+    extra_hosts:
+      - "thegibson:203.0.113.201"
+    ports:
+      - "80:80"
+      - "5000:5000"
+    networks:
+      cyberdelia:
+        ipv4_address: 203.0.113.200
+
+networks:
+  cyberdelia:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 203.0.113.0/24
+
+volumes:
+  db_data:
