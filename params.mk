@@ -3,7 +3,7 @@
 # the marking process recomputes these from your SID and checks they match your
 # configuration, your running containers and your evidence.
 
-SID ?= u1234567
+SID ?= 17017615
 
 # strip a leading 'u' from the SID, then take its trailing digits
 SID_NUM  := $(SID:u%=%)
