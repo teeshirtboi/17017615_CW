@@ -1,0 +1,52 @@
+# Read the following file carefully!
+
+# >>> NEW TO THIS? Open START_HERE.md first — it walks you through everything <<<
+# >>> in order. Then read ASSESSMENT_REQUIREMENTS.md for the build-specific   <<<
+# >>> rules (your APP_UID/APP_PORT, provenance token, required evidence).     <<<
+#
+# The rest of this file is the client's original "how to run it" note.
+
+#############
+# You will find two folders in this archive, one for a database container and one for a webserver container.
+# This README gives you the commands to get CYBERDELIA - our "Wall of Fame" - running exactly as it sits on the client's dev box.
+
+# In all of the config files replace u1234567 with your specific university ID before you do the demo.
+############
+
+
+## Background
+
+You have been emailed the following environment as is. Turns out that for deployment the client (Ellingson Retro Systems) uses Makefile -s to somewhat automate their Operations Processes.
+
+To be able to test the system exactly as it runs on their production servers, you have been given the following instructions by a user named Ac1d_Burn from the company:
+
+Start with the database first. Hack the planet.
+
+####### DATABASE (THE GIBSON) ###########
+
+# First build the database image from the supplied makefile, just by entering the command:
+make
+# Then run the container with
+make run
+# After running this command, your postgres container will be configured with our database.
+# There are some handy clean up scripts already provided in the makefile
+make clean
+
+####### WEBSERVER (CYBERDELIA) ###########
+
+# First, build the webserver image from the supplied makefile:
+make
+# Then run the container with
+make run
+# You should now be able to browse to http://localhost/ to view the wall!
+
+# There are some handy clean up scripts already provided
+make clean
+
+# NOTE:
+
+If you have issues getting the basic setup working, ask for help!
+
+# Additional NOTE 1: There should be no space between an option flag and its value.
+# Additional NOTE 2: You will get a connection error if you run the 'docker exec' seed step too quickly after starting the database. Wait a few seconds so the database can start.
+# HINT: Re-importing the wall every time you start the container is not efficient... how could you make this data persist?
