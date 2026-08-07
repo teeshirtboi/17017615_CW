@@ -4,20 +4,18 @@
 FROM python:3.6
 
 # grab the usual toolbox (we ssh in to poke prod sometimes)
-RUN apt-get update && apt-get install -y \
-	nginx \
-	openssh-server \
-	netcat \
-	telnet \
-	nmap \
-	curl \
-	gcc
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nginx \
+    curl \
+    netcat-openbsd \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 # remote access for the ops team
-RUN mkdir -p /var/run/sshd && \
-	echo 'root:toor' | chpasswd && \
-	sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-	sed -i 's/#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+#RUN mkdir -p /var/run/sshd && \
+#	echo 'root:toor' | chpasswd && \
+#	sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+#	sed -i 's/#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 # app code + prod secrets
 COPY app/ /app/
