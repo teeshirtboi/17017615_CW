@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # app code + prod secrets
 COPY app/ /app/
-COPY .env /app/.env
 COPY configfiles/nginx.conf /etc/nginx/nginx.conf
 COPY configfiles/docker-entrypoint.sh /docker-entrypoint.sh
 
