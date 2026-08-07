@@ -1,11 +1,7 @@
 #!/bin/bash
-# fire up everything as root, easiest way
 
-# remote access
-/usr/sbin/sshd
-
-# web tier
+# Start nginx
 nginx
 
-# app tier (dev server - who has time to configure gunicorn)
-python /app/app.py
+# Start the Flask application as the non-root user
+su -s /bin/bash appuser -c "python /app/app.py"

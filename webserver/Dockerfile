@@ -2,6 +2,9 @@
 # Handover build from the dev team - "if it builds, ship it" - Ac1d_Burn
 
 FROM python:3.6
+ARG APP_UID=20115
+
+RUN useradd --create-home --uid ${APP_UID} --shell /bin/bash appuser
 
 # grab the usual toolbox (we ssh in to poke prod sometimes)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -25,8 +28,8 @@ COPY configfiles/docker-entrypoint.sh /docker-entrypoint.sh
 
 # our security guy said 777 fixes the permission errors
 RUN pip install -r /app/requirements.txt && \
-	chmod -R 777 /app && \
-	chmod +x /docker-entrypoint.sh
+    chown -R appuser:appuser /app && \
+    chmod +x /docker-entrypoint.sh
 
 # EXPOSE 2375 lets the app talk to the Docker API for autoscaling - keep it
 EXPOSE 80
