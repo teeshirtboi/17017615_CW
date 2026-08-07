@@ -33,8 +33,5 @@ RUN pip install -r /app/requirements.txt && \
 # EXPOSE 2375 lets the app talk to the Docker API for autoscaling - keep it
 EXPOSE 80
 EXPOSE 5000
-EXPOSE 2375
-EXPOSE 22
-EXPOSE 31337
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
