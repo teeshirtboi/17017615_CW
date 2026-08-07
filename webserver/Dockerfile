@@ -1,7 +1,7 @@
 # CYBERDELIA webserver :: Ellingson Retro Systems
 # Handover build from the dev team - "if it builds, ship it" - Ac1d_Burn
 
-FROM python:3.6
+FROM python:3.11-slim
 ARG APP_UID=20115
 
 RUN useradd --create-home --uid ${APP_UID} --shell /bin/bash appuser
