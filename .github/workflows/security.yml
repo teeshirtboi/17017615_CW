@@ -19,12 +19,19 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Lint Dockerfile with Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: webserver/Dockerfile
+          failure-threshold: error
+          format: tty
+
       - name: Build Docker Image
         run: |
           docker build -t cyberdelia-secure ./webserver
 
-      - name: Run Trivy Scan
-        uses: aquasecurity/trivy-action@master
+      - name: Run Trivy Vulnerability Scan
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: cyberdelia-secure
           format: table
@@ -32,6 +39,14 @@ jobs:
           exit-code: 0
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH,MEDIUM'
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0.24.0
+        with:
+          image: cyberdelia-secure
+          format: spdx-json
+          output-file: cyberdelia-sbom.spdx.json
+          artifact-name: cyberdelia-sbom.spdx.json
 
       - name: Upload Trivy Report
         uses: actions/upload-artifact@v4
