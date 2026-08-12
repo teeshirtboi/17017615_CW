@@ -1,0 +1,194 @@
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬────────────┬─────────────────┬─────────┐
+│                                      Target                                      │    Type    │ Vulnerabilities │ Secrets │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ final-web:latest (alpine 3.24.1)                                                 │   alpine   │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ Python                                                                           │ python-pkg │        3        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/MarkupSafe-2.1.3.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/blinker-1.9.0.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/certifi-2026.7.22.dist-info/METADATA       │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/charset_normalizer-3.5.0.dist-info/METADA- │ python-pkg │        0        │    -    │
+│ TA                                                                               │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/click-8.1.7.dist-info/METADATA             │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/flask-3.1.3.dist-info/METADATA             │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/gunicorn-23.0.0.dist-info/METADATA         │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/idna-3.18.dist-info/METADATA               │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/itsdangerous-2.2.0.dist-info/METADATA      │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/jinja2-3.1.6.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/packaging-26.3.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/pip-26.2.1.dist-info/METADATA              │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/psycopg2_binary-2.9.9.dist-info/METADATA   │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/requests-2.33.0.dist-info/METADATA         │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools-84.0.0.dist-info/METADATA       │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/autocommand-2.2.2.dist- │ python-pkg │        0        │    -    │
+│ -info/METADATA                                                                   │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/backports.tarfile-1.2.- │ python-pkg │        0        │    -    │
+│ 0.dist-info/METADATA                                                             │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata-8.7- │ python-pkg │        0        │    -    │
+│ .1.dist-info/METADATA                                                            │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/jaraco.text-4.0.0.dist- │ python-pkg │        0        │    -    │
+│ -info/METADATA                                                                   │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/jaraco_context-6.1.0.d- │ python-pkg │        0        │    -    │
+│ ist-info/METADATA                                                                │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/jaraco_functools-4.4.0- │ python-pkg │        0        │    -    │
+│ .dist-info/METADATA                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/more_itertools-10.8.0.- │ python-pkg │        0        │    -    │
+│ dist-info/METADATA                                                               │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/packaging-26.0.dist-in- │ python-pkg │        0        │    -    │
+│ fo/METADATA                                                                      │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/platformdirs-4.4.0.dis- │ python-pkg │        0        │    -    │
+│ t-info/METADATA                                                                  │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/tomli-2.4.0.dist-info/- │ python-pkg │        0        │    -    │
+│ METADATA                                                                         │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/wheel-0.46.3.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/setuptools/_vendor/zipp-3.23.0.dist-info/- │ python-pkg │        0        │    -    │
+│ METADATA                                                                         │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/urllib3-2.7.0.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/werkzeug-3.1.6.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ opt/venv/lib/python3.11/site-packages/wheel-0.48.0.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/packaging-26.2.dist-info/METADATA         │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pip-24.0.dist-info/METADATA               │ python-pkg │        5        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools-79.0.1.dist-info/METADATA      │ python-pkg │        1        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/autocommand-2.2.2.dis- │ python-pkg │        0        │    -    │
+│ t-info/METADATA                                                                  │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/backports.tarfile-1.2- │ python-pkg │        0        │    -    │
+│ .0.dist-info/METADATA                                                            │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata-8.- │ python-pkg │        0        │    -    │
+│ 0.0.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/inflect-7.3.1.dist-in- │ python-pkg │        0        │    -    │
+│ fo/METADATA                                                                      │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.collections-5.- │ python-pkg │        0        │    -    │
+│ 1.0.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.context-5.3.0.- │ python-pkg │        1        │    -    │
+│ dist-info/METADATA                                                               │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.functools-4.0.- │ python-pkg │        0        │    -    │
+│ 1.dist-info/METADATA                                                             │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.text-3.12.1.di- │ python-pkg │        0        │    -    │
+│ st-info/METADATA                                                                 │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/more_itertools-10.3.0- │ python-pkg │        0        │    -    │
+│ .dist-info/METADATA                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/packaging-24.2.dist-i- │ python-pkg │        0        │    -    │
+│ nfo/METADATA                                                                     │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/platformdirs-4.2.2.di- │ python-pkg │        0        │    -    │
+│ st-info/METADATA                                                                 │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/tomli-2.0.1.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/typeguard-4.3.0.dist-- │ python-pkg │        0        │    -    │
+│ info/METADATA                                                                    │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/typing_extensions-4.1- │ python-pkg │        0        │    -    │
+│ 2.2.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/wheel-0.45.1.dist-inf- │ python-pkg │        1        │    -    │
+│ o/METADATA                                                                       │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/zipp-3.19.2.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/wheel-0.46.3.dist-info/METADATA           │ python-pkg │        0        │    -    │
+└──────────────────────────────────────────────────────────────────────────────────┴────────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+Python (python-pkg)
+===================
+Total: 11 (UNKNOWN: 0, LOW: 1, MEDIUM: 6, HIGH: 4, CRITICAL: 0)
+
+┌───────────────────────────┬─────────────────────┬──────────┬────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│          Library          │    Vulnerability    │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                             │
+├───────────────────────────┼─────────────────────┼──────────┼────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ jaraco.context (METADATA) │ CVE-2026-23949      │ HIGH     │ fixed  │ 5.3.0             │ 6.1.0         │ jaraco.context: jaraco.context: Path traversal via malicious │
+│                           │                     │          │        │                   │               │ tar archives                                                 │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-23949                   │
+├───────────────────────────┼─────────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ msgpack                   │ GHSA-6v7p-g79w-8964 │          │        │ 1.1.2             │ 1.2.1         │ MessagePack for Python: Out-of-bounds read / crash on        │
+│                           │                     │          │        │                   │               │ Unpacker reuse after a...                                    │
+│                           │                     │          │        │                   │               │ https://github.com/advisories/GHSA-6v7p-g79w-8964            │
+├───────────────────────────┼─────────────────────┼──────────┤        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ pip (METADATA)            │ CVE-2025-8869       │ MEDIUM   │        │ 24.0              │ 25.3          │ pip: pip missing checks on symbolic link extraction          │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-8869                    │
+│                           ├─────────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-3219       │          │        │                   │ 26.1          │ pip: pip: Incorrect file installation due to improper        │
+│                           │                     │          │        │                   │               │ archive handling                                             │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-3219                    │
+│                           ├─────────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-6357       │          │        │                   │               │ pip: pip: Arbitrary code execution or information disclosure │
+│                           │                     │          │        │                   │               │ via malicious wheel package...                               │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-6357                    │
+│                           ├─────────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-8643       │          │        │                   │ 26.1.2        │ python-pip: Path traversal via malicious entry point name in │
+│                           │                     │          │        │                   │               │ pip wheel installation...                                    │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-8643                    │
+│                           ├─────────────────────┼──────────┤        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-1703       │ LOW      │        │                   │ 26.0          │ pip: pip: Information disclosure via path traversal when     │
+│                           │                     │          │        │                   │               │ installing crafted wheel archives...                         │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-1703                    │
+├───────────────────────────┼─────────────────────┼──────────┤        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ setuptools                │ CVE-2025-47273      │ HIGH     │        │ 70.3.0            │ 78.1.1        │ setuptools: Path Traversal Vulnerability in setuptools       │
+│                           │                     │          │        │                   │               │ PackageIndex                                                 │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-47273                   │
+│                           ├─────────────────────┼──────────┤        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-59890      │ MEDIUM   │        │                   │ 83.0.0        │ setuptools: setuptools: MANIFEST.in exclusion bypass in      │
+│                           │                     │          │        │                   │               │ sdist via Unicode normalization collision (NFC/NFD)...       │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-59890                   │
+├───────────────────────────┤                     │          │        ├───────────────────┤               │                                                              │
+│ setuptools (METADATA)     │                     │          │        │ 79.0.1            │               │                                                              │
+│                           │                     │          │        │                   │               │                                                              │
+│                           │                     │          │        │                   │               │                                                              │
+├───────────────────────────┼─────────────────────┼──────────┤        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ wheel (METADATA)          │ CVE-2026-24049      │ HIGH     │        │ 0.45.1            │ 0.46.2        │ wheel: wheel: Privilege Escalation or Arbitrary Code         │
+│                           │                     │          │        │                   │               │ Execution via malicious wheel file...                        │
+│                           │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-24049                   │
+└───────────────────────────┴─────────────────────┴──────────┴────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
