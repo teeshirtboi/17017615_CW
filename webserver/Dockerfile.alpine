@@ -1,6 +1,6 @@
 # ============================================================
 # CYBERDELIA - Hardened Alpine Web Container
-# Student ID: u17017615
+# Student ID: 17017615
 # APP_UID: 20615
 # APP_PORT: 8015
 # ============================================================
@@ -63,6 +63,29 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 COPY --from=builder /opt/venv /opt/venv
+
+# Remove unused Python packaging tools from the runtime image.
+# Runtime dependencies are provided by /opt/venv.
+RUN rm -rf \
+    /usr/local/lib/python3.11/site-packages/pip \
+    /usr/local/lib/python3.11/site-packages/pip-*.dist-info \
+    /usr/local/lib/python3.11/site-packages/setuptools \
+    /usr/local/lib/python3.11/site-packages/setuptools-*.dist-info \
+    /usr/local/lib/python3.11/site-packages/wheel \
+    /usr/local/lib/python3.11/site-packages/wheel-*.dist-info \
+    /usr/local/bin/pip \
+    /usr/local/bin/pip3 \
+    /usr/local/bin/pip3.11 \
+    /opt/venv/lib/python3.11/site-packages/pip \
+    /opt/venv/lib/python3.11/site-packages/pip-*.dist-info \
+    /opt/venv/lib/python3.11/site-packages/setuptools \
+    /opt/venv/lib/python3.11/site-packages/setuptools-*.dist-info \
+    /opt/venv/lib/python3.11/site-packages/wheel \
+    /opt/venv/lib/python3.11/site-packages/wheel-*.dist-info \
+    /opt/venv/bin/pip \
+    /opt/venv/bin/pip3 \
+    /opt/venv/bin/pip3.11 \
+    /opt/venv/bin/wheel
 
 COPY app/ /app/
 
