@@ -1,0 +1,108 @@
+# ============================================================
+# CYBERDELIA - Hardened Alpine Web Container
+# Student ID: 17017615
+# APP_UID: 20615
+# APP_PORT: 8015
+# ============================================================
+
+# ------------------------------------------------------------
+# Stage 1: Builder
+# ------------------------------------------------------------
+FROM python:3.11-alpine AS builder
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
+
+RUN apk add --no-cache \
+        gcc \
+        musl-dev \
+        libffi-dev \
+        postgresql-dev \
+        linux-headers \
+    && python -m venv "$VIRTUAL_ENV" \
+    && pip install --no-cache-dir --upgrade pip setuptools wheel
+
+WORKDIR /build
+
+COPY app/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# ------------------------------------------------------------
+# Stage 2: Runtime
+# ------------------------------------------------------------
+FROM python:3.11-alpine
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    APP_UID=20615 \
+    APP_PORT=8015 \
+    VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
+
+RUN apk add --no-cache \
+        nginx \
+        libpq \
+    && addgroup -S -g 20615 appuser \
+    && adduser -S -D -H -u 20615 -G appuser appuser \
+    && mkdir -p \
+        /app \
+        /run/nginx \
+        /var/log/nginx \
+        /var/lib/nginx/tmp \
+    && chown -R 20615:20615 \
+        /app \
+        /run/nginx \
+        /var/log/nginx \
+        /var/lib/nginx \
+        /etc/nginx
+
+WORKDIR /app
+
+COPY --from=builder /opt/venv /opt/venv
+
+# Remove unused Python packaging tools from the runtime image.
+# Runtime dependencies are provided by /opt/venv.
+RUN rm -rf \
+    /usr/local/lib/python3.11/site-packages/pip \
+    /usr/local/lib/python3.11/site-packages/pip-*.dist-info \
+    /usr/local/lib/python3.11/site-packages/setuptools \
+    /usr/local/lib/python3.11/site-packages/setuptools-*.dist-info \
+    /usr/local/lib/python3.11/site-packages/wheel \
+    /usr/local/lib/python3.11/site-packages/wheel-*.dist-info \
+    /usr/local/bin/pip \
+    /usr/local/bin/pip3 \
+    /usr/local/bin/pip3.11 \
+    /opt/venv/lib/python3.11/site-packages/pip \
+    /opt/venv/lib/python3.11/site-packages/pip-*.dist-info \
+    /opt/venv/lib/python3.11/site-packages/setuptools \
+    /opt/venv/lib/python3.11/site-packages/setuptools-*.dist-info \
+    /opt/venv/lib/python3.11/site-packages/wheel \
+    /opt/venv/lib/python3.11/site-packages/wheel-*.dist-info \
+    /opt/venv/bin/pip \
+    /opt/venv/bin/pip3 \
+    /opt/venv/bin/pip3.11 \
+    /opt/venv/bin/wheel
+
+COPY app/ /app/
+
+COPY configfiles/nginx.conf /etc/nginx/nginx.conf
+
+COPY configfiles/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh \
+    && chown 20615:20615 /docker-entrypoint.sh \
+    && chown -R 20615:20615 /app
+
+USER 20615:20615
+
+EXPOSE 80
+EXPOSE 8015
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:80/', timeout=3)" || exit 1
+
+ENTRYPOINT ["/docker-entrypoint.sh"]

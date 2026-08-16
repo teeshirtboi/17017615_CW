@@ -1,0 +1,24 @@
+# ============================================================
+# CYBERDELIA - Hardened PostgreSQL Database Container
+# Student ID: 17017615
+# PostgreSQL 16 Alpine
+# ============================================================
+
+FROM postgres:16-alpine
+
+# Copy PostgreSQL configuration
+COPY pg_hba.conf /etc/postgresql/pg_hba.conf
+COPY postgresql.conf /etc/postgresql/postgresql.conf
+
+# Create the restricted application user using the Docker Secret
+COPY sqlconfig/01-create-app-user.sh /docker-entrypoint-initdb.d/01-create-app-user.sh
+
+# Create the database schema and permissions
+COPY sqlconfig/cyberdelia.sql /docker-entrypoint-initdb.d/02-cyberdelia.sql
+
+# Make the user creation script executable
+RUN chmod 755 /docker-entrypoint-initdb.d/01-create-app-user.sh
+
+EXPOSE 5432
+
+CMD ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
