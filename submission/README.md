@@ -1,37 +1,36 @@
-# CYBERDELIA - Hardened Container Deployment
+# CYBERDELIA – Container Security Hardening
 
-## Security Hardening
+**Module:** 7009SCN – Cloud and Container Security  
+**Student ID:** 17017615  
+**Application UID:** 20615  
+**Application Port:** 8015  
 
-The CYBERDELIA application was hardened to reduce security risks in the Docker
-environment. The web container uses a multi-stage Docker build. Build tools are
-kept in the builder stage and unnecessary Python packaging tools are removed
-from the runtime image.
+## 1. Project Overview
 
-The final runtime image uses Alpine Linux and runs the application as a
-dedicated non-root user with UID/GID 20615. All Linux capabilities are dropped
-and only `CAP_NET_BIND_SERVICE` is added where required. The container also
-uses `no-new-privileges:true` to reduce the risk of privilege escalation.
+This project implements security hardening for the CYBERDELIA containerised web application.
 
-Resource limits are applied to the web container. The final configuration uses
-a 256 MB memory limit and a 0.5 CPU limit. A healthcheck is also configured to
-verify that the web service is responding correctly.
+The original deployment was reviewed and hardened to reduce the attack surface, limit container privileges, improve resource control, reduce unnecessary software, and improve vulnerability management.
 
-## Vulnerability Reduction
+The final deployment consists of:
 
-Trivy was used to scan the container before and after hardening. The final
-scan reported zero vulnerabilities for the Alpine operating system and all
-detected Python packages. Previously identified vulnerable Python packages
-were removed or updated as part of the hardening process.
+- A hardened web application container
+- A PostgreSQL database container
+- Docker Compose for deployment and service management
+- Nginx as the reverse proxy
+- Alpine Linux with Python 3.11 for the web runtime
+- Trivy for container vulnerability scanning
 
-The final image is approximately 89.8 MB compared with the earlier 1.03 GB
-web image, giving a significant reduction in image size and attack surface.
+---
 
-## Verification
+## 2. Security Hardening
 
-The final deployment was tested using Docker Compose. Both the database and
-web containers start successfully, with the web container reporting a healthy
-status. The application returned HTTP 200 when tested through Nginx.
+The final implementation applies the following security controls:
 
-The running processes were verified to use the non-root `appuser` account.
-Provenance was recorded in `PROVENANCE.txt`, and the changes were committed
-and pushed to the Git repository.
+### Non-root execution
+
+The web application runs using the dedicated application account:
+
+```text
+UID: 20615
+GID: 20615
+User: appuser
